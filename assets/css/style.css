@@ -368,7 +368,7 @@ section .container {
 .section-title p {
   margin: 0;
   margin: -15px 0 15px 0;
-  font-size: 36px;
+  font-size: 76px;
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
@@ -730,6 +730,15 @@ section .container {
 
 .services .icon-box:hover h4 a, .services .icon-box:hover p {
   color: #fff;
+}
+
+.download-resume {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
 }
 
 /*--------------------------------------------------------------
