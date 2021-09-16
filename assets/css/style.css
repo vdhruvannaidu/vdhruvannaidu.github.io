@@ -1188,3 +1188,32 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+
+@media only screen and (min-width: 350px) and (max-width: 769px) {
+  .section-title p {
+    font-size: 36px;
+  }
+
+  .text-center.mobile-resume {
+    display: none;
+  }
+  
+}
+
+
+/* 
+@media only screen and (min-width: 1192px) {
+  .download-resume {
+    display: none;
+  }
+
+  .section-title p {
+    font-size: 36px;
+  }
+} */
+
+@media only screen and (min-width: 1199px) {
+  .download-btn {
+    display: none;
+  }
+}
