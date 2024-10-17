@@ -33,7 +33,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Theme Check and Update -->
+   <style>
+      html {
+          scroll-behavior: smooth;
+      }
+   </style>
   <script>
+
+function scrollToSection(event, sectionId) {
+    event.preventDefault(); // Prevent the default anchor behavior
+
+    // Remove the 'active' Tailwind classes from all nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove(
+            'border-s-2', 'md:border-s-0', 'md:border-b-2', 
+            'border-gray-800', 'font-medium', 'text-gray-800',
+            'dark:border-neutral-200', 'dark:text-neutral-200'
+        );
+    });
+
+    // Add the full set of Tailwind 'active' classes to the clicked nav item
+    event.currentTarget.classList.add(
+        'border-s-2', 'md:border-s-0', 'md:border-b-2',
+        'border-gray-800', 'font-medium', 'text-gray-800',
+        'dark:border-neutral-200', 'dark:text-neutral-200'
+    );
+
+    // Get the target section by ID
+    const section = document.getElementById(sectionId);
+    const offset = 100; // Adjust this value to your desired offset
+
+    // Scroll to the section with smooth behavior
+    window.scrollTo({
+        top: section.offsetTop - offset,
+        behavior: 'smooth'
+    });
+}
     const html = document.querySelector("html");
     const isLightOrAuto =
       localStorage.getItem("hs_theme") === "light" ||
@@ -58,7 +93,7 @@
   <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css" />
 </head>
 
-<body class="dark:bg-neutral-900">
+<body id="home" class="dark:bg-neutral-900">
   <!-- ========== HEADER ========== -->
   <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
     <nav
@@ -108,13 +143,13 @@
         aria-labelledby="hs-navbar-header-floating-collapse">
         <div
           class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none dark:border-neutral-200 dark:text-neutral-200"
+          <a  onclick="scrollToSection(event, 'home')" data-section="home" class="nav-item py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none dark:border-neutral-200 dark:text-neutral-200"
             href="#" aria-current="page">Home</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
-            href="#projects">Projects</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
+          <a onclick="scrollToSection(event, 'projects')" data-section="about" onclick="scrollToSection(event)" class="nav-item py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
+            href="#">Projects</a>
+          <a onclick="scrollToSection(event, 'work')" data-section="work" class="nav-item py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
             href="#">Work</a>
-          <a class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
+          <a onclick="scrollToSection(event, 'articles')" data-section="articles"class="nav-item py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 text-gray-500 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
             href="#">Articles</a>
           <a>
             <button type="button"
@@ -156,7 +191,7 @@
   <main id="content">
     <div class="w-full max-w-2xl mx-auto pt-10 md:pt-16 px-4 sm:px-6 lg:px-8">
       <!-- Profile -->
-      <div class="flex items-center gap-x-3">
+      <div id="home" class="flex items-center gap-x-3">
         <div class="shrink-0">
           <img class="shrink-0 size-16 rounded-full" src="assets/portfolio-title-img.jpg" alt="Avatar" />
         </div>
@@ -173,7 +208,7 @@
       <!-- End Profile -->
 
       <!-- About -->
-      <div class="mt-8">
+      <div id="about" class="mt-8">
         <p class="text-sm text-gray-600 dark:text-neutral-400">
           Hey, thanks for landing on this page and checking out a more extensive version of my humble-brag page. 😄
           I currently work as a Software Engineer at a tech company(Infraon).
@@ -271,12 +306,13 @@
                   <path d="m21 21-4.3-4.3" />
                 </svg>
                 <!-- <span class="text-xs">View</span> -->
-                <button type="button"
+                <!-- <button type="button"
                   class="p-1 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                   aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-full-screen-modal"
                   data-hs-overlay="#hs-full-screen-modal">View
 
-                </button>
+                </button> -->
+                <span class="text-xs">View</span>
                 <div id="hs-full-screen-modal"
                   class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
                   role="dialog" tabindex="-1" aria-labelledby="hs-full-screen-label">
@@ -420,7 +456,7 @@
       <!-- End Projects -->
 
       <!-- Skills -->
-      <div class="my-10 sm:my-14">
+      <div  class="my-10 sm:my-14">
         <h2 class="mb-5 font-medium text-gray-800 dark:text-neutral-200">
           Skills
         </h2>
@@ -647,7 +683,7 @@
       <!-- End Skills -->
 
       <!-- Work Experience -->
-      <div class="mt-10 sm:mt-14">
+      <div id="work" class="mt-10 sm:mt-14">
         <h2 class="mb-5 font-medium text-gray-800 dark:text-neutral-200">
           Work experience
         </h2>
