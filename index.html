@@ -37,9 +37,12 @@
           scroll-behavior: smooth;
         }
       </style>
-      <script src="main.js"></script>
+      
 
       <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     </head>
 
     <body id="home" class="dark:bg-neutral-900">
@@ -352,7 +355,7 @@
                   alt="Project"
                 />
                 <div
-                  class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition"
+                  class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition cursor-pointer"
                 >
                   
                     <div
@@ -385,10 +388,10 @@
                 </div>
                 <div id="hs-large-modal" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="hs-large-modal-label">
                   <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all lg:max-w-4xl lg:w-full m-3 lg:mx-auto h-[calc(100%-3.5rem)] min-h-[calc(100%-3.5rem)] flex items-center">
-                    <div class="w-full max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                    <div class="w-full max-h-full h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
                       <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
-                        <h3 id="hs-large-modal-label" class="font-bold text-gray-800 dark:text-white">
-                          Modal title
+                        <h3 id="hs-large-modal-label" class="font-bold text-gray-800 dark:text-white h-full">
+                          Chess Multiplayer Online Game
                         </h3>
                         <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-large-modal">
                           <span class="sr-only">Close</span>
@@ -398,10 +401,33 @@
                           </svg>
                         </button>
                       </div>
-                      <div class="p-4 overflow-y-auto">
+                      <div class="p-4 overflow-y-auto h-full">
                         <div class="space-y-4">
                           <div>
-                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Be bold</h3>
+                            <h3 class="text-md font-semibold text-gray-800 dark:text-white pb-4">Chess Game Images</h3>
+                            <div class="swiper mySwiper">
+                              <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img height="100" width="100" src="assets/chessgamehome.png" alt=""></div>
+                                <div class="swiper-slide">Slide 2</div>
+                                <div class="swiper-slide">Slide 3</div>
+                                <div class="swiper-slide">Slide 4</div>
+                                <div class="swiper-slide">Slide 5</div>
+                                <div class="swiper-slide">Slide 6</div>
+                                <div class="swiper-slide">Slide 7</div>
+                                <div class="swiper-slide">Slide 8</div>
+                                <div class="swiper-slide">Slide 9</div>
+                              </div>
+                              <div class="swiper-button-next"></div>
+                              <div class="swiper-button-prev"></div>
+                              <div class="swiper-pagination"></div>
+                              <div class="autoplay-progress">
+                                <svg viewBox="0 0 48 48">
+                                  <circle cx="24" cy="24" r="20"></circle>
+                                </svg>
+                                <span></span>
+                              </div>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-4">Approach</h3>
                             <p class="mt-1 text-gray-800 dark:text-neutral-400">
                               Motivate teams to do their best work. Offer best practices to get users going in the right direction. Be bold and offer just enough help to get the work started, and then get out of the way. Give accurate information so users can make educated decisions. Know your user's struggles and desired outcomes and give just enough information to let them get where they need to go.
                             </p>
@@ -420,7 +446,7 @@
                           Close
                         </button>
                         <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                          Save changes
+                          Live Demo
                         </button>
                       </div>
                     </div>
@@ -1433,5 +1459,7 @@
         </div>
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script src="main.js"></script>
     </body>
   </html>
