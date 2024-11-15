@@ -4,24 +4,14 @@ function scrollToSection(event, sectionId) {
   // Remove the 'active' Tailwind classes from all nav items
   document.querySelectorAll(".nav-item").forEach((item) => {
     item.classList.remove(
-      "border-s-2",
-      "md:border-s-0",
-      "md:border-b-2",
       "border-gray-800",
-      "font-medium",
-      "text-gray-800",
-      "dark:border-neutral-200",
-      "dark:text-neutral-200"
+      "dark:border-neutral-200"
     );
   });
 
   // Add the full set of Tailwind 'active' classes to the clicked nav item
   event.currentTarget.classList.add(
-    "border-s-2",
-    "md:border-s-0",
-    "md:border-b-2",
     "border-gray-800",
-    "font-medium",
     "text-gray-800",
     "dark:border-neutral-200",
     "dark:text-neutral-200"
